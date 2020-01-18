@@ -1,0 +1,30 @@
+; P70
+; 程序的功能是什么？
+DATA  SEGMENT
+BUF   DB  '5792'
+BCD   DB  4 DUP(?)
+DATA  ENDS
+STACK SEGMENT STACK
+      DB  200 DUP(0)
+STACK ENDS
+CODE SEGMENT
+     ASSUME CS:CODE,DS:DATA,SS:STACK
+START:
+     MOV  AX, DATA
+     MOV  DS, AX
+     MOV  CX, 4
+     LEA  SI, BUF
+     LEA  DI, BCD+3
+LOOP1:
+     MOV  AL, [SI]
+     AND  AL, 0FH
+     MOV  [DI],AL
+     INC  SI
+     DEC  DI
+     DEC  CX
+     JNE  LOOP1
+     MOV  AH,4CH
+     INT  21H
+CODE ENDS
+     END START
+  
