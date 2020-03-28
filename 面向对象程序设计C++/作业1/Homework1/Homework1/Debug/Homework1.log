@@ -1,0 +1,6 @@
+﻿  main.cpp
+  node.cpp
+  Set.cpp
+  正在生成代码...
+C:\Users\86189\Desktop\我\华中科技大学计算机科学与技术\面向对象程序设计C++\作业1\Homework1\Homework1\main.cpp(11,6): warning C4101: “test”: 未引用的局部变量
+  Homework1.vcxproj -> C:\Users\86189\Desktop\我\华中科技大学计算机科学与技术\面向对象程序设计C++\作业1\Homework1\Debug\Homework1.exe
