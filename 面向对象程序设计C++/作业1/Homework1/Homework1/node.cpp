@@ -15,7 +15,16 @@ NODE::NODE(char* data, NODE* left, NODE* right)
 }
 NODE::~NODE()
 {
-	delete data;
-	delete left;
-	delete right;
+	if(left)
+	{
+		left->~NODE();
+	}
+	if(right)
+	{
+		right->~NODE();
+	}
+	if(data)
+	{
+		delete data;
+	}
 }
