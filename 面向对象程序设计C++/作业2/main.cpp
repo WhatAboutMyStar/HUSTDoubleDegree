@@ -25,5 +25,14 @@ int main()
 	std::cout << "ÖĞĞò±éÀú£º\n";
 	t.inOrder();
 	std::cout << std::endl;
+
+	if (t.search(&ch[2]) == NULL)
+	{
+		std::cout << "Not Found\n";
+	}
+	else
+	{
+		std::cout << "Find :" << t.search(&ch[0]);
+	}
 	return 0;
 }

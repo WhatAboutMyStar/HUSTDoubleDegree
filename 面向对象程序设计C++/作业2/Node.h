@@ -10,4 +10,5 @@ public:
 	void insert(char* x);
 	void preOrder();
 	void inOrder();
+	NODE* search(char* x);
 };

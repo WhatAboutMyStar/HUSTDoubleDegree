@@ -37,7 +37,12 @@ NODE::~NODE()
 }
 void NODE::insert(char* x)
 {
-	if (x >= data)
+	if (data == nullptr)
+	{
+		data = new char[strlen(x) + 1];
+		strcpy_s(data, strlen(x) + 1, x);
+	}
+	if (*x >= *data)
 	{
 		if (!right)
 		{
@@ -46,7 +51,7 @@ void NODE::insert(char* x)
 		}
 		right->insert(x);
 	}
-	else if (x < data)
+	else if (*x < *data)
 	{
 		if (!left)
 		{
@@ -86,5 +91,28 @@ void NODE::inOrder()
 	if (right)
 	{
 		right->inOrder();
+	}
+}
+NODE* NODE::search(char* x)
+{
+	if (*x > *data)
+	{
+		if (!right)
+		{
+			return NULL;
+		}
+		return right->search(x);
+	}
+	else if (*x < *data)
+	{
+		if (!left)
+		{
+			return NULL;
+		}
+		return left->search(x);
+	}
+	else
+	{
+		return this;
 	}
 }
