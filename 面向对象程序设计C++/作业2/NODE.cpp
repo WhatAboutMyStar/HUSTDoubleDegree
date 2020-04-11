@@ -41,6 +41,7 @@ void NODE::insert(char* x)
 	{
 		data = new char[strlen(x) + 1];
 		strcpy_s(data, strlen(x) + 1, x);
+		return;
 	}
 	if (*x >= *data)
 	{
