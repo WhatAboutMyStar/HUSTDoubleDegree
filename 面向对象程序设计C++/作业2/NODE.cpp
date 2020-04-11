@@ -65,6 +65,10 @@ void NODE::insert(char* x)
 
 void NODE::preOrder()
 {
+	if (data)
+	{
+		std::cout << *data << " ";
+	}
 	if (left)
 	{
 		left->preOrder();
@@ -72,10 +76,6 @@ void NODE::preOrder()
 	if (right)
 	{
 		right->preOrder();
-	}
-	if (data)
-	{
-		std::cout << *data << " ";
 	}
 }
 
