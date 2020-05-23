@@ -172,15 +172,17 @@ delete 的功能是___。（这应该不用专门写答案了吧）
 #include <iostream >
 using namespace std;
 void exchange( int x, int y)
-{ int temp;
-temp=x; x=y; y=temp;
+{ 
+	int temp;
+	temp=x; x=y; y=temp;
 }
 int main()
-{ int p=60, q=80;
-exchange(p , q );
-cout<< "p= " << p <<endl;
-cout<<" q= " << q << endl;
-return 0;
+{ 
+	int p=60, q=80;
+	exchange(p , q );
+	cout<< "p= " << p <<endl;
+	cout<<" q= " << q << endl;
+	return 0;
 }
 显示的是：
 如果将void exchange( int x, int y) 改为void exchange( int &x, int &y)，显示的结
@@ -190,21 +192,22 @@ return 0;
 using namespace std;
 class student {
 private:
-int weight;
-static int count;
+	int weight;
+	static int count;
 public:
-student (int x ) {
-weight =x; count++;
-cout<< " weight = "<< weight << " count = " << count<< endl;
-}
-void print_ weight ( ) {
-cout<< " weight = "<< weight << " count = " << count<< endl;
-}
+	student (int x ) {
+		weight =x; count++;
+		cout<< " weight = "<< weight << " count = " << count<< endl;
+	}
+	void print_weight ( ) {
+		cout<< " weight = "<< weight << " count = " << count<< endl;
+	}
 };
 int student::count=0;
 void main()
-{ student s1(22), s2(24) , s3(26);
-s2. print_ weight ( );
+{ 
+	student s1(22), s2(24) , s3(26);
+	s2.print_weight ( );
 }
 
 3. 执行下面的程序后，显示的结果是什么？ (12 分)
@@ -212,41 +215,41 @@ s2. print_ weight ( );
 using namespace std;
 class Base {
 private:
-int x;
+	int x;
 public:
-Base(int t )
-{
-x = t;
-cout<<" x = "<< x << endl;
-}
-virtual void display( ) { cout<<" Base Class!"<<endl; }
-void tellvalue ( ) { cout<<"variable x is "<< x << endl; }
-~Base( ) { cout<<" Deconstruct Base Object"<<endl; }
+	Base(int t )
+	{
+		x = t;
+		cout<<" x = "<< x << endl;
+	}
+	virtual void display( ) { cout<<" Base Class!"<<endl; }
+	void tellvalue ( ) { cout<<"variable x is "<< x << endl; }
+	~Base( ) { cout<<" Deconstruct Base Object"<<endl; }
 };
 class Derived : public Base{
 private:
-int y;
+	int y;
 public:
-Derived( int xx, int yy) : Base(xx)
-{
-y =yy;
-cout<<" y = "<< y << endl;
-}
-void display( ) { cout<<" Derived Class!"<<endl; }
-void tellvalue ( ) { cout<<"variable y is "<<y << endl; }
-~Derived ( ) { cout<<" Deconstruct Derived Object "<<endl; }
+	Derived( int xx, int yy) : Base(xx)
+	{
+		y =yy;
+		cout<<" y = "<< y << endl;
+	}
+	void display( ) { cout<<" Derived Class!"<<endl; }
+	void tellvalue ( ) { cout<<"variable y is "<<y << endl; }
+	~Derived ( ) { cout<<" Deconstruct Derived Object "<<endl; }
 };
 int main()
 {
-Derived myDerived(10, 20); // 显示：
-myDerived . display ( ); // 显示：
-Base *p = new Derived(30, 40); // 显示：
-p -> display ( ); // 显示：
-p-> tellvalue( ); // 显示：
-((Derived *)p)->tellvalue(); // 显示：
-delete p; // 显示：
-cout<<"over"<<endl; // 显示：
-return 0;
+	Derived myDerived(10, 20); // 显示：
+	myDerived.display ( ); // 显示：
+	Base *p = new Derived(30, 40); // 显示：
+	p -> display ( ); // 显示：
+	p-> tellvalue( ); // 显示：
+	((Derived *)p)->tellvalue(); // 显示：
+	delete p; // 显示：
+	cout<<"over"<<endl; // 显示：
+	return 0;
 } // 显示：
 ```
 ### （五）程序改错
@@ -257,30 +260,30 @@ using namespace std;
 class Person
 {
 private:
-int age;
+	int age;
 public:
-void Person(int i) {age = i;} //错误
-void SetAge(int m) {age=m;}
-int IncreaseAge ( ) const{ // 错误
-age = age+1;
-return age;
-}
-void DisplayAge( ) {cout<<"age="<<age<<endl;}
-~Person() {
-cout<<"Deconstruct person"<<endl;
-}
+	void Person(int i) {age = i;} //错误
+	void SetAge(int m) {age=m;}
+	int IncreaseAge ( ) const{ // 错误
+		age = age+1;
+		return age;
+	}
+	void DisplayAge( ) {cout<<"age="<<age<<endl;}
+	~Person() {
+		cout<<"Deconstruct person"<<endl;
+	}
 };
 void main()
 {
-int t;
-Person obj1;
-obj1.DisplayAge(); // 该行语句执行后显示： age=10
-Person obj2(3);
-obj2.age=20; //错误
-obj2.DisplayAge( ); // 该行语句执行后显示： age=20
-Person *p = &obj2;
-t = p.IncreaseAge(); // 错误
-p->DisplayAge( ); // 该行语句执行后显示： age=21
+	int t;
+	Person obj1;
+	obj1.DisplayAge(); // 该行语句执行后显示： age=10
+	Person obj2(3);
+	obj2.age=20; //错误
+	obj2.DisplayAge( ); // 该行语句执行后显示： age=20
+	Person *p = &obj2;
+	t = p.IncreaseAge(); // 错误
+	p->DisplayAge( ); // 该行语句执行后显示： age=21
 }
 ```
 
@@ -291,48 +294,51 @@ p->DisplayAge( ); // 该行语句执行后显示： age=21
 using namespace std;
 class Array {
 private:
-int length; int *data;
+	int length; int *data;
 public:
-Array( ) {
-length=0;
-data = NULL;
-cout<<"construct Array without parameter"<<endl;
+	Array( ) {
+		length=0;
+		data = NULL;
+		cout<<"construct Array without parameter"<<endl;
+	};
+	Array(int len) {
+		length = len;
+		data=new int[length];
+		memset(data,0,sizeof(int)*length);
+		cout<<"construct Array length ="<<length<<endl;
+	};
+	void Init( )
+	{ 
+		data[2]=2;
+		data[1]=1;
+		data[0]=100;
+	}
+	Array(Array &p)
+	{ 
+		length = p.length;
+		data= new int[length];
+		memcpy(data,p.data,sizeof(int)*length);
+		cout<<"construct Array by object"<<endl;
+	}
+	~Array() {
+		cout<<"deconstruct Array length = "<<length<<endl;
+		if (data) delete [] data;
+	};
+	void friend display_first(Array p);
+	void friend display_second(Array &p);
 };
-Array(int len) {
-length = len;
-data=new int[length];
-memset(data,0,sizeof(int)*length);
-cout<<"construct Array length ="<<length<<endl;
-};
-void Init( )
-{ data[2]=2;
-data[1]=1;
-data[0]=100;
-}
-Array(Array &p)
-{ length = p.length;
-data= new int[length];
-memcpy(data,p.data,sizeof(int)*length);
-cout<<"construct Array by object"<<endl;
-}
-~Array() {
-cout<<"deconstruct Array length = "<<length<<endl;
-if (data) delete [] data;
-};
-void friend display_first(Array p);
-void friend display_second(Array &p);
-};
+
 void display_first(Array p) {cout<<"first element is "<<p.data[0]<<endl; }
 void display_second(Array &p) {cout<<"second element is "<<p.data[1]<<endl; }
 void main( ) {
-Array a1(10); // 显示
-a1.Init( );
-display_first(a1); // 显示
-display_second(a1); // 显示
-Array *p1=new Array(1); // 显示
-Array *p2=new Array[1]; // 显示
-delete p1; // 显示
-delete [ ]p2; // 显示
+	Array a1(10); // 显示
+	a1.Init( );
+	display_first(a1); // 显示
+	display_second(a1); // 显示
+	Array *p1=new Array(1); // 显示
+	Array *p2=new Array[1]; // 显示
+	delete p1; // 显示
+	delete [ ]p2; // 显示
 } // 显示
 
 2、在上述程序中，删掉函数Array(Array &p) 之后，程序仍然可编译连接，生成执
