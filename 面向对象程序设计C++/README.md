@@ -1,5 +1,6 @@
 # C++ 考试复习注意
 - 目前提供模拟卷两份以Markdown文档形式上传，方便在网页端阅读
+- 本网页显示一份，另一份试卷可点此前往[C++模拟卷](https://github.com/WhatAboutMyStar/HUSTDoubleDegree/blob/master/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1C%2B%2B/%E6%A8%A1%E6%8B%9F%E5%8D%B7.md)
 
 ## 2020/5/23日模拟考试
 
