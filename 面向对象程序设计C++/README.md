@@ -471,3 +471,55 @@ int main()
 }
 
 ```
+## 最终考试2020/5/30的编程题
+- 其他题目差不多的，没啥好发的，比模拟题还简单
+```
+编写完整的程序，实现复数的加法运算。
+(1) 定义一个复数Complex 类
+① 含有私有数据成员： double real, imag; （分别对应复数的实部和虚部）；
+② 含有公有的函数成员：
+构造函数（实部，虚部）； // 即有两个参数的构造函数
+构造函数（），将real, imag 均设置为0； // 即无参数的构造函数
+析构函数，显示deconstruction real= … imag =… (…处要显示具体的值)
+重载+运算符， 实现复数的加法
+(2) 在主程序中，定义Complex 对象c1(1,2), c2(3,4), c3(5, 6), c4.
+含有语句： c4=c1+c2+c3。
+要求不改变c1, c2, c3 的值。
+```
+
+```
+#include<iostream>
+using namespace std;
+
+class Complex{
+private:
+	double real, imag;
+public:
+	Complex(double r, double i):real{r},imag{i}{
+	
+	} 
+	Complex(){
+		real = 0;
+		imag = 0;
+	}
+	
+	Complex& operator+(Complex& c){
+		Complex temp(real, imag);
+		temp.real += c.real;
+		temp.imag += c.imag;
+		return temp;
+	} 
+	
+	~Complex(){
+		cout<<"deconstructor real="<<real<<" imag="<<imag<<endl;
+	}
+};
+
+int main()
+{
+	Complex c1(1,2),c2(3,4),c3(5,6);
+	Complex c4;
+	c4 = c1 + c2 + c3;
+	return 0;
+}
+```
